@@ -336,32 +336,33 @@ public class Orden extends AppCompatActivity {
                                 Log.e("idpedido",String.valueOf(idpedido));
 
 
+
                             }
                         }).start();
                         // 1. Instantiate an AlertDialog.Builder with its constructor
 
 
-                        //Toast.makeText(getApplicationContext(), "Su Pedido Fue Registrado Correctamente", Toast.LENGTH_SHORT).show();
-                        //listafinal.clear();
-                        //ids.clear();
-                        //Intent iab = new Intent(Orden.this, LoadMesas.class);
-                        //startActivity(iab);
+                        /*Toast.makeText(getApplicationContext(), "Su Pedido Fue Registrado Correctamente", Toast.LENGTH_SHORT).show();
+                            listafinal.clear();
+                            ids.clear();
+                            Intent iab = new Intent(Orden.this, LoadMesas.class);
+                            startActivity(iab);*/
 
-                       /* AlertDialog.Builder builder = new AlertDialog.Builder(Orden.this);
+                       AlertDialog.Builder builder = new AlertDialog.Builder(Orden.this);
                         // 2. Chain together various setter methods to set the dialog characteristics
-                        builder.setMessage("Desea Imprimir el pedido...")
+                        builder.setMessage("Pedido Realizado con éxito...")
                                 .setTitle("Alert!");
-                        builder.setPositiveButton("Si", new DialogInterface.OnClickListener(){
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                generarPDFOnClick1(v);
+                               // generarPDFOnClick1(v);
                                 listafinal.clear();
                                 ids.clear();
                                 Intent iab = new Intent(Orden.this, LoadMesas.class);
                                 startActivity(iab);
                             }
                         });
-                        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                     /* builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 listafinal.clear();
@@ -369,12 +370,13 @@ public class Orden extends AppCompatActivity {
                                 Intent iab = new Intent(Orden.this, LoadMesas.class);
                                 startActivity(iab);
                             }
-                        });
+                        });*/
                         // 3. Get the AlertDialog from create()
                         builder.show();
-                        */
+
 
                     }
+
                 }
             });
         }
