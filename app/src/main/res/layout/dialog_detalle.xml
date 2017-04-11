@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:text="Detalle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="79dp"
+        android:id="@+id/textView6"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/txt_detalle"
+        android:layout_alignStart="@+id/txt_detalle"
+        android:textColor="#b30c25" />
+
+    <EditText
+        android:layout_width="400dp"
+        android:layout_height="150dp"
+        android:inputType="text"
+        android:ems="10"
+        android:id="@+id/txt_detalle"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/textView6"
+        android:layout_centerHorizontal="true"
+        android:hint="Ej.(sin ensalda, con doble porcion)"
+        android:singleLine="true"
+        android:paddingBottom="95dp"
+        android:background="@drawable/shape"
+        android:paddingLeft="20dp" />
+
+</RelativeLayout>

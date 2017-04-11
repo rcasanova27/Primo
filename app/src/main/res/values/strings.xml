@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Parrilladas El Primo </string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="title_activity_login">E-food</string>
+    <string name="action_salir">Salir</string>
+    <string name="almuerzo1">Almuerzo 1</string>
+    <string name="almuerzo2">Almuerzo 2</string>
+    <string name="cancelar">Suspender Pedido</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

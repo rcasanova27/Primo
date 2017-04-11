@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.parrilladas.primo.Orden.Orden">
+      <!-- FOOTER NAVIGATION -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@drawable/btn_default"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/footer">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dp"
+            android:id="@+id/tab1">
+
+            <ImageButton
+            android:id="@+id/tab1_cancelar"
+            android:layout_weight="2"
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:background="@drawable/btn_default"
+            android:src="@drawable/backarrow2"
+            android:clickable="true"
+            android:fontFamily="sans-serif-light"
+            android:elevation="20dp" />
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/tab1_text"
+                android:layout_weight="1"
+                android:textColor="@color/button_pressed"
+                android:textSize="12dp"
+                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:text="Cancelar" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/tab3">
+
+            <ImageButton
+                android:id="@+id/tab3add"
+                android:layout_weight="2"
+                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/btn_default"
+                android:src="@drawable/restauranmenu"
+                android:clickable="true"
+                android:fontFamily="sans-serif-light"
+                android:elevation="20dp" />
+
+            <TextView
+                android:gravity="center"
+                android:layout_weight="1"
+                android:id="@+id/tab3_text"
+                android:textColor="@color/button_pressed"
+                android:textSize="14dp"
+                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:text="Agregar mas Platos" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/tab2">
+
+            <ImageButton
+                android:id="@+id/tab2RealizarP"
+                android:layout_weight="2"
+                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/btn_default"
+                android:src="@drawable/sales2"
+                android:clickable="true"
+                android:fontFamily="sans-serif-light"
+                android:elevation="20dp" />
+
+            <TextView
+                android:gravity="center"
+                android:layout_weight="1"
+                android:id="@+id/tab2_text"
+                android:textColor="@color/button_pressed"
+                android:textSize="14dp"
+                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:text="Realizar Pedido" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_above="@+id/footer"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/darker_gray">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0,00"
+            android:id="@+id/txt_total"
+            android:textSize="15dp"
+            android:layout_alignTop="@+id/textView2"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total:"
+            android:id="@+id/textView2"
+            android:textSize="15dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="600dp"
+        android:layout_height="match_parent"
+        android:id="@+id/linearLayout"
+        android:elevation="1dp"
+        android:layout_weight="1"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/footer"
+        android:layout_marginBottom="60dp">
+
+        <com.parrilladas.primo.swipemenulistview.SwipeMenuListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/listView"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/relativeLayout"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:text="Plato"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginStart="25dp"
+            android:id="@+id/textView7"
+            android:textSize="15sp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="Cant."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView11"
+            android:textSize="15sp"
+            android:layout_alignTop="@+id/textView7"
+            android:layout_toLeftOf="@+id/textView13"
+            android:layout_toStartOf="@+id/textView13"
+            android:layout_marginRight="21dp"
+            android:layout_marginEnd="21dp" />
+
+
+
+        <TextView
+            android:text="Total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView13"
+            android:textSize="15sp"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_alignTop="@+id/textView11"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>
