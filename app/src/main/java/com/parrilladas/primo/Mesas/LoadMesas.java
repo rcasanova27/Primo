@@ -70,7 +70,7 @@ public TextView nombre_usuario;
 
 
         if (datos.getString("p_nombre",null) != null) {
-            nombre_usuario.setText(datos.getString("p_nombre",null));
+            nombre_usuario.setText("   "+datos.getString("p_nombre",null));
         }
 
 

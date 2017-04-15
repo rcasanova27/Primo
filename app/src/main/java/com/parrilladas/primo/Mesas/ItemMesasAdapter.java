@@ -2,8 +2,10 @@ package com.parrilladas.primo.Mesas;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
@@ -160,18 +162,21 @@ public class ItemMesasAdapter extends BaseAdapter {
 		btn_mesas2.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(final View v) {
-			Toast.makeText(v.getContext(),"La mesa esta Ocupada",Toast.LENGTH_LONG).show();
-                dialog = ProgressDialog.show(v.getContext(), "", "Cargando Orden...", true);
+
+                dialog = ProgressDialog.show(v.getContext(), "", "Validando...", true);
                 new Thread(new Runnable() {
                     public void run() {
                         sleep(2000);
                         final SharedPreferences dato =  v.getContext().getSharedPreferences("perfil", Context.MODE_PRIVATE);
                         mesa = items.get(position).getNombre_mesa();
 
+
+
                         Thread tr= new Thread(){
                             @Override
                             public void run() {
                                 final String resultado=cargarDatos(mesa,dato.getString("p_id",null));
+                                if(!resultado.isEmpty()){
                                 activity.runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
@@ -194,11 +199,18 @@ public class ItemMesasAdapter extends BaseAdapter {
                                         }
                                     }
                                 });
+                                }else{
 
+                                    dialog.dismiss();
+
+                                    //showAlert();
+                                }
                             }
                         }; tr.start();
                     }
                 }).start();
+
+                Toast.makeText(v.getContext(),"La mesa esta Ocupada",Toast.LENGTH_LONG).show();
 
             }
 		});
@@ -232,6 +244,23 @@ public class ItemMesasAdapter extends BaseAdapter {
 
         }
     return resul.toString();
+    }
+
+    public void showAlert(){
+        activity.runOnUiThread(new Runnable() {
+            public void run() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(activity.getApplicationContext());
+                builder.setTitle("Error De Acceso");
+                builder.setMessage("Usuario no Autorizado.")
+                        .setCancelable(false)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+        });
     }
     public int obtenerdatosjson(String response){
         int res=0;
