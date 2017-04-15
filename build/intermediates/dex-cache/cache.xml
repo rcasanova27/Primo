@@ -5,7 +5,7 @@
         jar="/Users/imac/GitHub/Primo/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="b415f820bae1a1698f8c9b2b1b41331b39eaa986">
+        sha1="44f2ae35c86060761c002aa7e435f8136676ebdd">
         <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_cc4259e1d8c7761d8ff36aca715c184fdaac798c/classes.dex" />
     </item>
     <item
@@ -117,7 +117,7 @@
         jar="/Users/imac/GitHub/Primo/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="988d6c9ecf3877c03772556f64d4c6f95c9d6461">
+        sha1="fedb156fb7f4fff771032ed4b323a9e1db24820b">
         <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_cfb8fcf99ea9475714e385bb9403fdd19e22d620/classes.dex" />
     </item>
     <item

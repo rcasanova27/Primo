@@ -27,8 +27,7 @@
                 android:layout_weight="0.00"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:id="@+id/relativeLayout2"
-                android:background="@color/colorPrimaryDark">
+                android:id="@+id/relativeLayout2">
 
 
                 <ImageView
