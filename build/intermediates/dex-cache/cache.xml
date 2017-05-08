@@ -2,130 +2,116 @@
 <items version="2" >
 
     <item
-        jar="/Users/imac/GitHub/Primo/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="44f2ae35c86060761c002aa7e435f8136676ebdd">
-        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_cc4259e1d8c7761d8ff36aca715c184fdaac798c/classes.dex" />
-    </item>
-    <item
-        jar="/Users/imac/GitHub/Primo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="94d9cedd04b124aed044ac71c451a292856d854c">
-        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-9.0.2_b8cb1847b74ed1e9e92d085a2e6000e7001b7dc4/classes.dex" />
-    </item>
-    <item
-        jar="/Users/imac/GitHub/Primo/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
-        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.4.0_90be2a1f18ad9b23bff30805ada8d71cc8ef3b41/classes.dex" />
-    </item>
-    <item
-        jar="/Users/imac/GitHub/Primo/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
-        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.4.0_09fd99cb2bd8e8569835fabc4541975a19f2eebf/classes.dex" />
-    </item>
-    <item
-        jar="/Users/imac/.gradle/caches/modules-2/files-2.1/org.jbundle.util.osgi.wrapped/org.jbundle.util.osgi.wrapped.org.apache.http.client/4.1.2/98c86e42679fe7ac066f6c242e0d14f0bce0bb7c/org.jbundle.util.osgi.wrapped.org.apache.http.client-4.1.2.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="98c86e42679fe7ac066f6c242e0d14f0bce0bb7c">
-        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/transforms/dex/debug/folders/1000/10/org.jbundle.util.osgi.wrapped.org.apache.http.client-4.1.2_7016916d62b5ecd536f627cfc35e2cf052a1833f/classes.dex" />
-    </item>
-    <item
-        jar="/Users/imac/GitHub/Primo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
-        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_1b1809cdb9abe22f0b938fb46c007cedb5836fd6/classes.dex" />
-    </item>
-    <item
-        jar="/Users/imac/GitHub/Primo/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_a8649fdc15a440ff07c9e4f0779cba774a0ce4e2/classes.dex" />
-    </item>
-    <item
-        jar="/Users/imac/GitHub/Primo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.0.2/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="aec1bc54964a85d851c2c1b1cb7f90f7dbd755ab">
-        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-9.0.2_7555e317c44fe495df6174c55d8141d7168f17a0/classes.dex" />
-    </item>
-    <item
         jar="/Users/imac/GitHub/Primo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/9.0.2/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         revision="23.0.2"
         sha1="d900f2a1ff098cac8befe6c023d723e9afb154be">
-        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appindexing-9.0.2_9816f7401011dcb287776805d5ebe411db55d859/classes.dex" />
+        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-appindexing-9.0.2_9816f7401011dcb287776805d5ebe411db55d859.jar" />
     </item>
     <item
         jar="/Users/imac/GitHub/Primo/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
-        jumboMode="true"
+        jumboMode="false"
         revision="23.0.2"
         sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_2f79204c723fdbfb15132859d344899391592a09/classes.dex" />
+        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/pre-dexed/debug/internal_impl-23.4.0_2f79204c723fdbfb15132859d344899391592a09.jar" />
     </item>
     <item
-        jar="/Users/imac/GitHub/Primo/app/libs/itextg-5.5.8.jar"
-        jumboMode="true"
+        jar="/Users/imac/GitHub/Primo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/jars/classes.jar"
+        jumboMode="false"
         revision="23.0.2"
-        sha1="b4776ad88a90a2cf10ca37c454c5520c7d5466f7">
-        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/transforms/dex/debug/folders/1000/2/itextg-5.5.8_ad03d527f2d4c5f50b5c4d9c11985fbe14c5928b/classes.dex" />
+        sha1="94d9cedd04b124aed044ac71c451a292856d854c">
+        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-9.0.2_b8cb1847b74ed1e9e92d085a2e6000e7001b7dc4.jar" />
     </item>
     <item
         jar="/Users/imac/GitHub/Primo/app/libs/xmlworker-5.5.6.jar"
-        jumboMode="true"
+        jumboMode="false"
         revision="23.0.2"
         sha1="189e2a4427ad6d5396e3419a62b48d2cf55b601e">
-        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/transforms/dex/debug/folders/1000/2/xmlworker-5.5.6_b2f96465d23c7b1d53861a1d96710a795601b553/classes.dex" />
+        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/pre-dexed/debug/xmlworker-5.5.6_b2f96465d23c7b1d53861a1d96710a795601b553.jar" />
+    </item>
+    <item
+        jar="/Users/imac/GitHub/Primo/app/libs/itextg-5.5.8.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b4776ad88a90a2cf10ca37c454c5520c7d5466f7">
+        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/pre-dexed/debug/itextg-5.5.8_ad03d527f2d4c5f50b5c4d9c11985fbe14c5928b.jar" />
+    </item>
+    <item
+        jar="/Users/imac/GitHub/Primo/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/pre-dexed/debug/com.android.support-design-23.4.0_09fd99cb2bd8e8569835fabc4541975a19f2eebf.jar" />
+    </item>
+    <item
+        jar="/Users/imac/GitHub/Primo/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.4.0_90be2a1f18ad9b23bff30805ada8d71cc8ef3b41.jar" />
+    </item>
+    <item
+        jar="/Users/imac/.gradle/caches/modules-2/files-2.1/org.jbundle.util.osgi.wrapped/org.jbundle.util.osgi.wrapped.org.apache.http.client/4.1.2/98c86e42679fe7ac066f6c242e0d14f0bce0bb7c/org.jbundle.util.osgi.wrapped.org.apache.http.client-4.1.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="98c86e42679fe7ac066f6c242e0d14f0bce0bb7c">
+        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/pre-dexed/debug/org.jbundle.util.osgi.wrapped.org.apache.http.client-4.1.2_7016916d62b5ecd536f627cfc35e2cf052a1833f.jar" />
+    </item>
+    <item
+        jar="/Users/imac/GitHub/Primo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.4.0_1b1809cdb9abe22f0b938fb46c007cedb5836fd6.jar" />
     </item>
     <item
         jar="/Users/imac/GitHub/Primo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.0.2/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         revision="23.0.2"
         sha1="4022261eeea0d92eb2997a68d2c1f084a16abad9">
-        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-9.0.2_1e0ae03565843628bf333dae696efcf10f6f34f9/classes.dex" />
+        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-9.0.2_1e0ae03565843628bf333dae696efcf10f6f34f9.jar" />
+    </item>
+    <item
+        jar="/Users/imac/GitHub/Primo/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.4.0_a8649fdc15a440ff07c9e4f0779cba774a0ce4e2.jar" />
     </item>
     <item
         jar="/Users/imac/GitHub/Primo/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         revision="23.0.2"
         sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
-        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.4.0_ca033ae1aeb48d5f8f5e152f5441ef6594d3823e/classes.dex" />
+        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.4.0_ca033ae1aeb48d5f8f5e152f5441ef6594d3823e.jar" />
     </item>
     <item
         jar="/Users/imac/GitHub/Primo/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         revision="23.0.2"
         sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
-        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_f6897923cb5797713707ea6f7d617e937a6ca621/classes.dex" />
+        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.4.0_f6897923cb5797713707ea6f7d617e937a6ca621.jar" />
     </item>
     <item
         jar="/Users/imac/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
-        jumboMode="true"
+        jumboMode="false"
         revision="23.0.2"
         sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
-        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_17fba3c46f129de5bddae58c506c18ce756e6929/classes.dex" />
+        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/pre-dexed/debug/support-annotations-23.4.0_17fba3c46f129de5bddae58c506c18ce756e6929.jar" />
     </item>
     <item
-        jar="/Users/imac/GitHub/Primo/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
+        jar="/Users/imac/GitHub/Primo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.0.2/jars/classes.jar"
+        jumboMode="false"
         revision="23.0.2"
-        sha1="fedb156fb7f4fff771032ed4b323a9e1db24820b">
-        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_cfb8fcf99ea9475714e385bb9403fdd19e22d620/classes.dex" />
+        sha1="aec1bc54964a85d851c2c1b1cb7f90f7dbd755ab">
+        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-9.0.2_7555e317c44fe495df6174c55d8141d7168f17a0.jar" />
     </item>
     <item
         jar="/Users/imac/GitHub/Primo/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.0.2/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         revision="23.0.2"
         sha1="9919563cffd8e3732e944d3c437d4b9575a08448">
-        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-9.0.2_6a350f7853d297c2d963a8be9ec7a971dee914a4/classes.dex" />
+        <dex dex="/Users/imac/GitHub/Primo/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-common-9.0.2_6a350f7853d297c2d963a8be9ec7a971dee914a4.jar" />
     </item>
 
 </items>
