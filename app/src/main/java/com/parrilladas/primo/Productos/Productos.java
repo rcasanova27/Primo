@@ -5,14 +5,17 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -25,6 +28,7 @@ import android.widget.Toast;
 
 import com.parrilladas.primo.ItemCompra;
 import com.parrilladas.primo.JSON;
+import com.parrilladas.primo.Mesas.LoadMesas;
 import com.parrilladas.primo.Orden.Orden;
 import com.parrilladas.primo.R;
 
@@ -65,6 +69,7 @@ swipeContainer.setOnRefreshListener(this);
             public void onClick(View view) {
                 Intent i = new Intent(view.getContext(), Orden.class);
                 view.getContext().startActivity(i);
+                finish();
 
             }
         });
@@ -168,19 +173,34 @@ swipeContainer.setOnRefreshListener(this);
 
     @SuppressLint("ShowToast")
     public void mo(String nombre){
-        AlertDialog.Builder alert = new AlertDialog.Builder(Productos.this);
+        final AlertDialog.Builder alert = new AlertDialog.Builder(Productos.this);
         alert.setTitle("Ingrese la candiad de: "+nombre);
-        final NumberPicker numberPicker = new NumberPicker(Productos.this);
+
+        ContextThemeWrapper cw = new ContextThemeWrapper(this, R.style.AppTheme_Picker);
+
+
+        final NumberPicker numberPicker = new NumberPicker(cw);
         numberPicker.setMaxValue(20);
         numberPicker.setMinValue(1);
         numberPicker.setWrapSelectorWheel(false);
-        numberPicker.setBackgroundColor(getResources().getColor(R.color.button_normal));
-        numberPicker.getBackground().setAlpha(233);
+        //numberPicker.setBackgroundColor(getResources().getColor(R.color.button_normal));
+        //numberPicker.getBackground().setAlpha(233);
+
+
+
+
+
+
+
+
         alert.setView(numberPicker);
+        alert.setCancelable(false);
+
         ///getWindow().setFlags(WindowManager.LayoutParams.ALPHA_CHANGED,
         //	WindowManager.LayoutParams.ALPHA_CHANGED);
         alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
+
                 if (stock< numberPicker.getValue()) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(Productos.this);
                     builder.setMessage("El Producto seleccionado se encuentra bajo en stock solo existen: " + stock)
@@ -276,7 +296,13 @@ swipeContainer.setOnRefreshListener(this);
         });
         return true;
     }
-
+    @Override
+    public void onBackPressed() {
+        //Toast ds = Toast.makeText(this, "Funcion no Válida", Toast.LENGTH_SHORT);
+        Intent iab = new Intent(Productos.this, LoadMesas.class);
+        startActivity(iab);
+        finish();
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

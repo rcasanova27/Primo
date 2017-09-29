@@ -40,7 +40,8 @@ import java.util.List;
 
 public class JSON {
     //public static String ip="192.168.43.239";
-    public static String ip="192.168.1.22/efood2/";
+    public static String ip="192.168.1.8:8090/efood2/";
+    //public static String ip="192.168.1.105/hiphop/";
     private String json = "";
     private BufferedReader bufferedReader;
     private StringBuilder builder;

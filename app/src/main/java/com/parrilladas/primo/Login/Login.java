@@ -47,6 +47,9 @@ public class Login extends AppCompatActivity {
     List<NameValuePair> nameValuePairs;
     ProgressDialog dialog = null;
     public static String contrasena,nombre_usuario,id_usuario;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -152,6 +155,7 @@ public class Login extends AppCompatActivity {
                         }
                     });
                     startActivity(new Intent(Login.this, LoadMesas.class));
+                    finish();
                 }else{
                     showAlert();
                 }

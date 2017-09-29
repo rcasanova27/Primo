@@ -97,7 +97,7 @@ public TextView nombre_usuario;
     }
     @Override
     public void onBackPressed() {
-        Toast ds = Toast.makeText(this, "Funcion no Válida", Toast.LENGTH_SHORT);
+        Toast.makeText(this, "Funcion no Válida", Toast.LENGTH_SHORT).show();
         /*Snackbar.make(findViewById(R.id.myCoordinatorLayout),"Pulse de nuevo para salir",
                 Snackbar.LENGTH_SHORT)
                 .show();*/

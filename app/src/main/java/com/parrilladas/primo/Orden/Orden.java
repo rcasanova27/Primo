@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.ContextThemeWrapper;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -58,6 +59,9 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -73,6 +77,7 @@ import java.math.RoundingMode;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static android.os.SystemClock.sleep;
 
@@ -205,6 +210,8 @@ public class Orden extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog = ProgressDialog.show(Orden.this, "", "Retornando a las mesas...", true);
+                dialog.setCancelable(false);
+                dialog.setCanceledOnTouchOutside(false);
                 Thread timer = new Thread() {
                     public void run() {
                         try {
@@ -217,6 +224,7 @@ public class Orden extends AppCompatActivity {
                             ids.clear();
                             Intent iab = new Intent(Orden.this, LoadMesas.class);
                             startActivity(iab);
+                            finish();
                             act = 0;
                         }
                     }
@@ -230,6 +238,7 @@ public class Orden extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     dialog = ProgressDialog.show(Orden.this, "", "Actualizando Orden...", true);
+
                     new Thread(new Runnable() {
                         public void run() {
                             actualizar();
@@ -240,6 +249,8 @@ public class Orden extends AppCompatActivity {
                                 idbase = (int) item.getId();
                                 InputStream is = null;
                                 // http post
+                                dialog.setCancelable(false);
+                                dialog.setCanceledOnTouchOutside(false);
                                 if (idE.isEmpty() != true) {
                                     for (int x = 0; x < idE.size(); x++) {
                                         eliminar(x);
@@ -271,6 +282,7 @@ public class Orden extends AppCompatActivity {
                             idE.clear();
                             Intent iab = new Intent(Orden.this, LoadMesas.class);
                             startActivity(iab);
+                            finish();
                         }
                     }).start();
                     act=0;
@@ -282,6 +294,7 @@ public class Orden extends AppCompatActivity {
             btn_registrar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View v) {
+
 
                     if (listafinal.isEmpty() == true) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(Orden.this);
@@ -295,20 +308,33 @@ public class Orden extends AppCompatActivity {
                         // 3. Get the AlertDialog from create()
                         builder.show();
                     } else {
+
                         dialog = ProgressDialog.show(Orden.this, "", "Validando Orden...", true);
+
                         new Thread(new Runnable() {
                             public void run() {
-                                registrar();
+
+                               /* registrar();
+
+                                if (data.equals("OK"))
+                                {
+
+                                }
+
                                 for (ItemCompra item : listafinal) {
                                     subtobase = Float.parseFloat(item.getPrecio());
                                     pvp = Float.parseFloat(String.valueOf(item.getPrecio_secos()));
                                     cantbase = item.getCant();
                                     idbase = (int) item.getId();
-                                    InputStream is = null;
+
                                     // http post
                                     ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
                                     nameValuePairs.add(new BasicNameValuePair("id_producto", String.valueOf(idbase)));
                                     nameValuePairs.add(new BasicNameValuePair("id_pedido", data));
+
+
+
+
                                     nameValuePairs.add(new BasicNameValuePair("cantidad", String.valueOf(cantbase)));
                                     nameValuePairs.add(new BasicNameValuePair("subtotal", String.valueOf(subtobase)));
                                     nameValuePairs.add(new BasicNameValuePair("pvp", String.valueOf(item.getPreciostatico())));
@@ -328,12 +354,60 @@ public class Orden extends AppCompatActivity {
                                     }
                                     Log.i("Campos", String.valueOf(subtobase) + " " + String.valueOf(cantbase) + " " + String.valueOf(idbase));
                                     dialog.dismiss();
+                                } */
+
+                                dialog.setCancelable(false);
+                                dialog.setCanceledOnTouchOutside(false);
+                                subtobase = Float.parseFloat(((String) txt_total.getText()).substring(1));
+
+                                JSONArray tabla = new JSONArray();
+                                for (ItemCompra item : listafinal) {
+                                    JSONObject ob = new JSONObject();
+                                    try {
+                                        ob.put("id_producto",item.getId());
+                                        ob.put("cantidad",item.getCant());
+                                        ob.put("subtotal",item.getPrecio());
+                                        ob.put("pvp",item.getPreciostatico());
+
+                                        tabla.put(ob);
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
                                 }
+
+                                SharedPreferences dato = getSharedPreferences("perfil", Context.MODE_PRIVATE);
+                                // http post
+                                ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+                                nameValuePairs.add(new BasicNameValuePair("id_mesa", String.valueOf(jo.mesa)));
+                                nameValuePairs.add(new BasicNameValuePair("subtotal", String.valueOf(subtobase)));
+                                nameValuePairs.add(new BasicNameValuePair("totalPagado", String.valueOf(subtobase)));
+                                nameValuePairs.add(new BasicNameValuePair("estado", "proceso"));
+                                nameValuePairs.add(new BasicNameValuePair("id_usuario", dato.getString("p_id", null)));
+                                nameValuePairs.add(new BasicNameValuePair("detalle",tabla.toString()));
+
+
+                                try {
+                                    HttpClient httpclient = new DefaultHttpClient();
+                                    HttpPost httppost = new HttpPost("http://" + obip.ip + "PhpAndroid/registrarpedido.php");
+                                    httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                                    HttpResponse response = httpclient.execute(httppost);
+                                    HttpEntity entity = response.getEntity();
+                                    //is = entity.getContent();
+                                    data = EntityUtils.toString(entity);
+                                    Log.e("RESPUESTA", data);
+                                    // Toast.makeText(getApplicationContext(), "Su Pedido Fue Registrado Correctamente", Toast.LENGTH_LONG).show();
+                                    // Intent iab = new Intent(Registrar.this, AndroidPHPConnectionDemo.class);
+                                    //startActivity(iab);
+                                } catch (Exception e) {
+                                    Log.e("log_tag", "ERROR AL REGISTRAR EL PEDIDO " + e.toString());
+                                }
+                                dialog.dismiss();
                                 html=null;
                                 final String id_p=data.replaceAll("\"","");
-                                Log.e("data", data);
-                                Log.e("idp", id_p);
-                                Log.e("idpedido",String.valueOf(idpedido));
+                                //Log.e("data", data);
+                                Log.e("RESPUESTA REPLACE", id_p);
+                                //Log.e("idpedido",String.valueOf(idpedido));
 
 
 
@@ -350,6 +424,7 @@ public class Orden extends AppCompatActivity {
 
                        AlertDialog.Builder builder = new AlertDialog.Builder(Orden.this);
                         // 2. Chain together various setter methods to set the dialog characteristics
+                        builder.setCancelable(false);
                         builder.setMessage("Pedido Realizado con éxito...")
                                 .setTitle("Alert!");
                         builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
@@ -360,6 +435,7 @@ public class Orden extends AppCompatActivity {
                                 ids.clear();
                                 Intent iab = new Intent(Orden.this, LoadMesas.class);
                                 startActivity(iab);
+                                finish();
                             }
                         });
                      /* builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -451,31 +527,38 @@ public class Orden extends AppCompatActivity {
                 switch (index) {
 
                     case 0:
-                        if (act == 1) {
-                            idE.add(listafinal.get(position).getId());
-                        }
-                        listafinal.remove(position);
-                        ids.remove(position);
 
-                        //listafinal.remove(position);
-                        adapter.notifyDataSetChanged();
-                        valor_total = (float) 0;
-                        for (ItemCompra item : listafinal) {
-                            Float sub, cal;
-                            sub = Float.parseFloat(item.getPreciostatico());
-                            cal = sub * item.getCant();
-                            valor_total = valor_total + cal;
-                        }
+                        if (ids.size() > 1 ) {
+                            if (act == 1) {
+                                idE.add(listafinal.get(position).getId());
+                            }
 
-                        BigDecimal big = new BigDecimal(valor_total + "");
-                        big = big.setScale(2, RoundingMode.HALF_UP);
-                        txt_total.setText("$"+String.valueOf(big));
-                        for (int x = 0; x < listafinal.size(); x++) {
-                            Log.e("Lista Despues", "lista del carrito despues de la eliminacion" + String.valueOf(listafinal.get(x).getId()));
+                            listafinal.remove(position);
+                            ids.remove(position);
+
+                            //listafinal.remove(position);
+                            adapter.notifyDataSetChanged();
+                            valor_total = (float) 0;
+                            for (ItemCompra item : listafinal) {
+                                Float sub, cal;
+                                sub = Float.parseFloat(item.getPreciostatico());
+                                cal = sub * item.getCant();
+                                valor_total = valor_total + cal;
+                            }
+
+                            BigDecimal big = new BigDecimal(valor_total + "");
+                            big = big.setScale(2, RoundingMode.HALF_UP);
+                            txt_total.setText("$" + String.valueOf(big));
+                            for (int x = 0; x < listafinal.size(); x++) {
+                                Log.e("Lista Despues", "lista del carrito despues de la eliminacion" + String.valueOf(listafinal.get(x).getId()));
+                            }
+                            for (int x = 0; x < ids.size(); x++) {
+                                Log.e("Delete OK", "lista del idcarrito despues de la eliminacion:" + String.valueOf(ids.get(x)));
+                            }
                         }
-                        for (int x = 0; x < ids.size(); x++) {
-                            Log.e("Delete OK", "lista del idcarrito despues de la eliminacion:" + String.valueOf(ids.get(x)));
-                        }
+                        else Toast.makeText(getApplicationContext(), "No puede quedar vacio, Elimine pedido desde la caja", Toast.LENGTH_SHORT).show();
+
+
                         break;
                     case 1:
                         final AlertDialog.Builder builder = new AlertDialog.Builder(Orden.this);
@@ -555,6 +638,7 @@ public class Orden extends AppCompatActivity {
                     ids.clear();
                     Intent iab = new Intent(Orden.this, LoadMesas.class);
                     startActivity(iab);
+                    finish();
                 }
             });
             builder.show();
@@ -571,7 +655,7 @@ public class Orden extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Toast ds = Toast.makeText(this, "Pulse de Nuevo para Salir", Toast.LENGTH_SHORT);
+        Toast ds = Toast.makeText(this, "Pulse de Cancelar para Salir", Toast.LENGTH_SHORT);
         long Cur = System.currentTimeMillis();
 
         if (Cur - mlas > mTim) {
@@ -581,7 +665,10 @@ public class Orden extends AppCompatActivity {
 
         } else {
             ds.cancel();
-            super.onBackPressed();
+
+
+
+           // super.onBackPressed();
         }
     }
 
@@ -589,13 +676,21 @@ public class Orden extends AppCompatActivity {
 
         AlertDialog.Builder alert = new AlertDialog.Builder(Orden.this);
         alert.setTitle("Ingrese la candiad de:" + nombre);
-        final NumberPicker numberPicker = new NumberPicker(Orden.this);
+
+        ContextThemeWrapper cw = new ContextThemeWrapper(this, R.style.AppTheme_Picker);
+
+
+        final NumberPicker numberPicker = new NumberPicker(cw);
         numberPicker.setMaxValue(20);
         numberPicker.setMinValue(1);
         numberPicker.setValue(cant);
         numberPicker.setWrapSelectorWheel(false);
-        numberPicker.setBackgroundColor(getResources().getColor(R.color.button_normal));
-        numberPicker.getBackground().setAlpha(233);
+
+
+
+
+        // numberPicker.setBackgroundColor(getResources().getColor(R.color.button_normal));
+       // numberPicker.getBackground().setAlpha(233);
 
         alert.setView(numberPicker);
 
@@ -707,6 +802,22 @@ public class Orden extends AppCompatActivity {
 
         subtobase = Float.parseFloat(((String) txt_total.getText()).substring(1));
 
+        JSONArray tabla = new JSONArray();
+        for (ItemCompra item : listafinal) {
+            JSONObject ob = new JSONObject();
+            try {
+                ob.put("id_producto",item.getId());
+                ob.put("cantidad",item.getCant());
+                ob.put("subtotal",item.getPrecio());
+                ob.put("pvp",item.getPreciostatico());
+
+                tabla.put(ob);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+
         SharedPreferences dato = getSharedPreferences("perfil", Context.MODE_PRIVATE);
         // http post
         ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
@@ -715,6 +826,8 @@ public class Orden extends AppCompatActivity {
         nameValuePairs.add(new BasicNameValuePair("totalPagado", String.valueOf(subtobase)));
         nameValuePairs.add(new BasicNameValuePair("estado", "proceso"));
         nameValuePairs.add(new BasicNameValuePair("id_usuario", dato.getString("p_id", null)));
+        nameValuePairs.add(new BasicNameValuePair("detalle",tabla.toString()));
+
 
         try {
             HttpClient httpclient = new DefaultHttpClient();
@@ -729,7 +842,7 @@ public class Orden extends AppCompatActivity {
             // Intent iab = new Intent(Registrar.this, AndroidPHPConnectionDemo.class);
             //startActivity(iab);
         } catch (Exception e) {
-            Log.e("log_tag", "Error in http connection " + e.toString());
+            Log.e("log_tag", "ERROR AL REGISTRAR EL PEDIDO " + e.toString());
         }
 
 

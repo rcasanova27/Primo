@@ -8,6 +8,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,6 +65,7 @@ public class ItemMesasAdapter extends BaseAdapter {
 	List<NameValuePair> nameValuePairs;
 	ProgressDialog dialog = null;
 
+    String resultado = "";
 	public ItemMesasAdapter() {
 	}
 
@@ -155,6 +158,7 @@ public class ItemMesasAdapter extends BaseAdapter {
 				mesa = items.get(position).getNombre_mesa();
 				Intent i = new Intent(v.getContext(), Productos.class);
 				v.getContext().startActivity(i);
+                activity.finish();
 
             }
         });
@@ -175,11 +179,12 @@ public class ItemMesasAdapter extends BaseAdapter {
                         Thread tr= new Thread(){
                             @Override
                             public void run() {
-                                final String resultado=cargarDatos(mesa,dato.getString("p_id",null));
-                                if(!resultado.isEmpty()){
+                                resultado =cargarDatos(mesa,dato.getString("p_id",null));
+                                if(!resultado.contains("USUARIO")){
                                 activity.runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
+
                                         int r=obtenerdatosjson(resultado);
                                         if(r>0)
                                         {
@@ -189,7 +194,7 @@ public class ItemMesasAdapter extends BaseAdapter {
                                             o.act=1;
                                             Intent i = new Intent(activity.getApplicationContext(), Orden.class);
                                             activity.startActivity(i);
-
+                                            activity.finish();
 
                                         }
                                         else
@@ -203,14 +208,21 @@ public class ItemMesasAdapter extends BaseAdapter {
 
                                     dialog.dismiss();
 
-                                    //showAlert();
+                                   //showAlert();
+
+                                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(v.getContext(),"La mesa está Ocupada por: " + resultado.substring(11) ,Toast.LENGTH_LONG).show();
+                                        }
+                                    });
                                 }
                             }
                         }; tr.start();
                     }
                 }).start();
 
-                Toast.makeText(v.getContext(),"La mesa esta Ocupada",Toast.LENGTH_LONG).show();
+               // Toast.makeText(v.getContext(),"La mesa Ocupada por: " + resultado ,Toast.LENGTH_LONG).show();
 
             }
 		});
@@ -274,6 +286,7 @@ public class ItemMesasAdapter extends BaseAdapter {
                         JSONObject obj=json.getJSONObject(i);
                         Orden o = new Orden();
                         o.idpedido=obj.getInt("id_pedido");
+
                         o.listafinal.add(new ItemCompra(obj.getLong("id_producto"),obj.getString("descripcion"),String.valueOf(obj.getDouble("subtotal")),obj.getInt("cantidad"),String.valueOf(obj.getDouble("pvp")),obj.getInt("stock")));
                        // for(int x =0 ; x<o.listafinal.size() ; x++){
                             o.ids.add(obj.getLong("id_producto"));
